@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from home.models import userData
+from ranjan.models import userData
 from .serializers import item
 
 @api_view(['GET'])

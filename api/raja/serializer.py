@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from home.views import *
+from rajan.views import *
 
 class item(serializers.ModelSerializer):
     class Meta:

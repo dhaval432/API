@@ -23,7 +23,7 @@ from django.urls import path,include
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('api/',include('api.urls')),
+    path('.api/',include('.api.urls')),
     # path('delete_data/<id>/',delete_data , name="delete_data"),
     # path('update_data/<id>/',update_data , name="update_data"), 
      
