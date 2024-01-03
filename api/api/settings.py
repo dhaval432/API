@@ -43,6 +43,7 @@ EXTERNAL_APPS = [
 
 "api", 
 "rajan",
+'rest_framework'
 ]
 INSTALLED_APPS += EXTERNAL_APPS
 MIDDLEWARE = [
