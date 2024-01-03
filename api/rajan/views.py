@@ -10,8 +10,8 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def getData(request):
-    
-    return Response(getData)
+    data = {'key':'value'}
+    return JsonResponse(getData)
 # def blog_list(request):
 #     blogs = Blog.objects.all()
 #     return render(request, 'blog/blog_list.html', {'blogs': blogs})
