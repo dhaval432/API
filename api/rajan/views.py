@@ -4,14 +4,14 @@ from .models import Blog
 # from django.forms import blog_form , CommentForm
 from .models import*
 from django.http import JsonResponse
-# from rest_framework.response import Response
-# from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 
-# @api_view(['GET'])
-# def getData(request):
+@api_view(['GET'])
+def getData(request):
     
-#     return Response(getData)
+    return Response(getData)
 # def blog_list(request):
 #     blogs = Blog.objects.all()
 #     return render(request, 'blog/blog_list.html', {'blogs': blogs})
