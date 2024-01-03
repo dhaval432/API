@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-# from home.views import  *
+from rajan.views import  *
 # from home.views import login_page, register
 
 
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('.api/',include('.api.urls')),
+    path('api/',include('blog.urls')),
     # path('delete_data/<id>/',delete_data , name="delete_data"),
     # path('update_data/<id>/',update_data , name="update_data"), 
      
