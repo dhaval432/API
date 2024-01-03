@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jakkas blog</title>
+    <style>
+      body {
+          font-family: 'Helvetica', sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f8f9f8;
+          text-align: center;
+      }
+
+      nav {
+          background-color: #007bff; /* Dark background color */
+          padding: 10px;
+          color:white; /* Text color */
+      }
+
+      .navbar-brand {
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: white; /* Text color */
+          text-decoration: none; /* Remove underline */
+      }
+
+      .btn {
+          background-color: #28a745; /* Button color */
+          color: rgb(232, 11, 177); /* Text color */
+          padding: 8px 16px;
+          border: none;
+          cursor: pointer;
+          text-decoration: none; /* Remove underline */
+      }
+
+      .card-group {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          margin: 20px;
+      }
+
+      .card {
+          width: 300px;
+          margin: 10px;
+          box-shadow: 0 4px 8px rgba(237, 3, 3, 0.849);
+          transition: box-shadow 0.3s;
+          border-radius: 8px;
+          overflow: hidden;
+      }
+
+      .card:hover {
+          box-shadow: 0 8px 16px rgba(123, 58, 58, 0.785);
+      }
+
+      .card img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px 8px 0 0;
+      }
+
+      .card-body {
+          padding: 16px;
+      }
+
+      .card-title {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+          color: #333;
+      }
+
+      .card-text {
+          font-size: 1rem;
+          line-height: 1.4;
+          margin-bottom: 10px;
+          color: #555;
+      }
+
+      .text-body-secondary {
+          font-size: 0.875rem;
+          color: #6c757d;
+      }
+
+      #blogForm {
+          max-width: 600px;
+          margin: 20px auto;
+          background-color: #fff;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+      }
+
+      label {
+          display: block;
+          margin-bottom: 8px;
+          color: #555;
+      }
+
+      input,
+      textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 16px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+
+      button {
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          border-radius: 4px;
+      }
+    .comments{
+        margin-top: 20px;
+    }
+    .comment {
+        position: relative;
+        padding-right: 100px; /* Adjust the padding based on your design */
+        margin-bottom: 10px;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 8px;
+        margin-left: 10px;
+    }
+
+    .comment button {
+        position: absolute;
+        top: 0;
+        margin-left: 15px ;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar bg-secondary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">Welcome to the world of blog</a>
+        
+      </form>
+    </div>
+</nav>
+  
+<div class="card-group">
+  <div class="card">
+    <img src="1296475.jpg" >
+    <div class="card-body">
+      <h5 class="card-title">Anime</h5>
+      <p class="card-text">Its Izuku midoria. world's great heroes successor none other than Allmight</p>
+      <p class="card-text"><small class="text-body-secondary">neel kapur<br>
+        Last updated 34 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="photo-1473448912268-2022ce9509d8.avif" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">NATURAL SECENARY</h5>
+      <p class="card-text"> This is very peacefull natural secenary. </p>
+      <p class="card-text"><small class="text-body-secondary">martin kian <br>
+        Last updated 30mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="106154636.webp" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">movie talkies</h5>
+      <p class="card-text">Its Aquaman and the lost kingdom. main characters in movies are Jason Momoa, Amber Heard, many. </p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 10mins ago</small></p>
+    </div>
+  </div>
+</div>
+
+<form id="blogForm">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" required>
+
+  <label for="content">Content:</label>
+  <textarea id="content" name="content" rows="6" required></textarea>
+
+  <label for="image">Image URL:</label>
+  <input type="text" id="image" name="image">
+
+  
+  <button type="button" onclick="addBlog()">Add Blog</button>
+</form>
+
+<div id="blogContainer">
+</div>
+
+<script>
+  function addBlog() {
+      // Get form values
+      var title = document.getElementById("title").value;
+      var content = document.getElementById("content").value;
+      var image = document.getElementById("image").value;
+
+      // Display blog information
+      var blogContainer = document.getElementById("blogContainer");
+
+      // Create a new card
+      var card = document.createElement("div");
+      card.className = "card";
+
+      var blogId = Date.now(); // Using timestamp as an example, replace with your actual ID logic
+            card.setAttribute("data-blog-id", blogId);
+
+      var cardContent = `
+      <img src="${image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${title}</h5>
+                    <p class="card-text">${content}</p>
+                    <div class="comments" id="comments_${blogId}"></div>
+                    <label for="comment_${blogId}">Add Comment:</label>
+                    <input type="text" id="comment_${blogId}" name="comment_${blogId}" />
+                    <button type="button" onclick="addComment('comments_${blogId}', 'comment_${blogId}')">Add</button>
+                    <button type="button" onclick="deleteBlog(${blogId})">Delete</button>
+                </div>
+            `;
+
+      card.innerHTML = cardContent;
+
+      // Append the new card to the container
+      blogContainer.appendChild(card);
+  }
+    
+function addComment(commentsContainerId, commentInputId) {
+    var commentsContainer = document.getElementById(commentsContainerId);
+    var commentInput = document.getElementById(commentInputId);
+
+    // Get the comment text
+    var commentText = commentInput.value;
+
+    if (commentText.trim() !== "") {
+        // Create a new comment element
+        var commentElement = document.createElement("div");
+        commentElement.className = "comment";
+        commentElement.innerText = commentText;
+
+        // Append the comment to the comments container
+        commentsContainer.appendChild(commentElement);
+
+        // Clear the comment input
+        commentInput.value = "";
+
+        // Create an "Update Comment" button for the new comment
+        var updateButton = document.createElement("button");
+        updateButton.innerText = "Update Comment";
+        updateButton.onclick = function() {
+            updateComment(commentElement);
+        };
+
+        // Append the button next to the comment
+        commentElement.appendChild(updateButton);
+    }
+}
+
+function updateComment(commentElement) {
+    // Get the current comment text
+    var currentCommentText = commentElement.innerText;
+
+    // Prompt the user for the updated comment
+    var updatedCommentText = prompt("Enter updated comment:", currentCommentText);
+
+    if (updatedCommentText !== null) {
+        // Update the comment text
+        commentElement.innerText = updatedCommentText;
+    }
+}
+
+
+  function deleteBlog(blogId) {
+            var card = document.querySelector(`[data-blog-id="${blogId}"]`);
+            if (card) {
+                card.remove();
+            }
+        }
+  
+  
+</script>
+
+</body>
+</html>
